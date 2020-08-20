@@ -1,19 +1,20 @@
-class Report
+# frozen_string_literal: true
 
+class Report
   def initialize(log:, key:)
     @log = log
     @key = key.to_sym
   end
 
   attr_reader :key, :log
-  
+
   Line = Struct.new(:page, :total)
 
   def title
     @title ||= case key
-      when :pages_most_visited_overall then 'Most Visited Pages Total Number Of Visits'
-      when :pages_most_visited_unique then 'Most Visited Pages Unique Visits by IP'
-    end
+               when :pages_most_visited_overall then 'Most Visited Pages Total Number Of Visits'
+               when :pages_most_visited_unique then 'Most Visited Pages Unique Visits by IP'
+               end
   end
 
   def lines

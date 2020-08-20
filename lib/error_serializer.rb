@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ErrorSerializer
-  extend self
+  module_function
 
   def call(message)
     puts message

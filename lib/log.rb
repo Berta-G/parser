@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Log
   LINE_FORMAT = %r{(?<page>/[\w|/]*)\s(?<ip>\d{3}.\d{3}.\d{3}.\d{3})}.freeze
 
@@ -24,4 +26,3 @@ class Log
     @input ||= IO.foreach(filename)
   end
 end
-

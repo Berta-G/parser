@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
 require './lib/error_serializer'
+require './lib/reports_serializer'
+require './lib/log'
+require './lib/report'
+
 require 'pry'
 
 module Parser
@@ -7,16 +13,15 @@ module Parser
   def call(filename)
     return error('No filename given') unless filename
     return error("File #{filename} does not exist") unless File.exist?(filename)
-    
+
     log = Log.new(filename: filename)
 
-    reports = [ 
+    reports = [
       Report.new(log: log, key: :pages_most_visited_overall),
       Report.new(log: log, key: :pages_most_visited_unique_visits)
     ]
 
-    # ReportsSerializer.call(reports)
-    puts
+    ReportsSerializer.call(reports)
   end
 
   private

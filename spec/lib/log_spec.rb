@@ -1,4 +1,6 @@
-require './lib/log.rb'
+# frozen_string_literal: true
+
+require './lib/log'
 
 RSpec.describe Log do
   let(:subject) { Log.new(filename: filename) }
@@ -11,14 +13,14 @@ RSpec.describe Log do
     end
 
     it 'returns lines' do
-      expect(subject.lines).to all( be_an(Log::Line) )
+      expect(subject.lines).to all(be_an(Log::Line))
     end
 
     it 'are correctly formatted' do
       lines = subject.lines
-      
-      expected_pages = content.map{ |l| l.split(' ').first } - ['/wrong']
-      expected_ips = content.map{ |l| l.split(' ').last } - ['444.XXX.448.104']
+
+      expected_pages = content.map { |l| l.split(' ').first } - ['/wrong']
+      expected_ips = content.map { |l| l.split(' ').last } - ['444.XXX.448.104']
       expect(lines.map(&:page).sort).to eq(expected_pages.sort)
       expect(lines.map(&:ip).sort).to eq(expected_ips.sort)
     end
