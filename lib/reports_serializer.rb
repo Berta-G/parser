@@ -1,11 +1,45 @@
 # frozen_string_literal: true
 
 module ReportsSerializer
-  module_function
+  extend self
 
   def call(reports)
     reports.each do |report|
-      puts
+      serialize_report(report)
     end
+  end
+
+  private
+
+  def serialize_report(report)
+    header(report.title)
+
+    print_lines(report.lines) if report.lines.any?
+
+    footer
+  end
+
+  def print_lines(lines)
+    lines_header
+
+    lines.each do |line|
+      puts "#{line.total}\t#{line.page}"
+    end
+  end
+
+  def header(title)
+    puts '=' * 30
+    puts title
+    puts
+  end
+
+  def lines_header
+    puts "count\tpage"
+    puts '-' * 30
+  end
+
+  def footer
+    puts
+    puts 'end'
   end
 end

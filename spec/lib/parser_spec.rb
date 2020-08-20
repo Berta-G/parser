@@ -30,10 +30,11 @@ RSpec.describe Parser do
 
     context 'Success' do
       let(:filename) { 'spec/files/visits.log' }
-      let(:expected_output) { "\n\n" }
 
-      it 'prints out the reports based on the given file' do
-        expect { subject.call(filename) }.to output(expected_output).to_stdout
+      it 'serializes the reports' do
+        expect(ReportsSerializer).to receive(:call)
+
+        subject.call(filename)
       end
     end
   end

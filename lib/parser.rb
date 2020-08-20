@@ -18,7 +18,7 @@ module Parser
 
     reports = [
       Report.new(log: log, key: :pages_most_visited_overall),
-      Report.new(log: log, key: :pages_most_visited_unique_visits)
+      Report.new(log: log, key: :pages_most_visited_unique)
     ]
 
     ReportsSerializer.call(reports)
