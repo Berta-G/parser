@@ -10,10 +10,10 @@ module Parser
     
     log = Log.new(filename: filename)
 
-    # reports = [ 
-    #   ReportFactory.call(log, :pages_most_visited_overall),
-    #   ReportFactory.call(log, :pages_most_visited_unique_visits)
-    # ]
+    reports = [ 
+      Report.new(log: log, key: :pages_most_visited_overall),
+      Report.new(log: log, key: :pages_most_visited_unique_visits)
+    ]
 
     # ReportsSerializer.call(reports)
     puts
