@@ -28,8 +28,9 @@ module ReportsSerializer
   end
 
   def header(title)
-    puts '=' * 30
-    puts title
+    puts '_' * 50
+    puts
+    puts " = #{title} ="
     puts
   end
 
@@ -40,6 +41,6 @@ module ReportsSerializer
 
   def footer
     puts
-    puts 'end'
+    puts '_' * 50
   end
 end
