@@ -8,7 +8,7 @@ module Parser
     return error('No filename given') unless filename
     return error("File #{filename} does not exist") unless File.exist?(filename)
     
-    # log = LogFactory.call(filename: filename)
+    log = Log.new(filename: filename)
 
     # reports = [ 
     #   ReportFactory.call(log, :pages_most_visited_overall),
