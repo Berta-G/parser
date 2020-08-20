@@ -1,3 +1,10 @@
+## Usage
+
+From root directory:
+- Installation: `bundle install`
+- run tests: `rspec`
+- run script: `ruby run.rb <path to file>`
+
 ## Objects
 
 ### *Parser*
